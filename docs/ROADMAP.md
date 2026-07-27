@@ -8,7 +8,7 @@ This roadmap adapts that challenge to a portfolio-quality full-stack incident ma
 
 ## Day 1 - Environment and Project Setup
 
-Status: In Progress
+Status: Completed
 
 - [x] Verify Node.js, npm, and Git.
 - [x] Create the Angular 20 frontend.
@@ -17,8 +17,8 @@ Status: In Progress
 - [x] Run a production build.
 - [x] Initialize the Git repository.
 - [x] Create the initial documentation structure.
-- [ ] Complete the README.
-- [ ] Create the first commit.
+- [x] Complete the README.
+- [x] Create the first commit.
 
 ## Phase 1 - Angular Foundations
 

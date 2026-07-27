@@ -26,6 +26,6 @@ Do not store secrets, access tokens, personal data, or entire chat transcripts.
 - Prompt: Guide me step by step to start the new project.
 - Result applied: Created the repository structure, initialized Angular 20 in `frontend`, enabled routing, SCSS, strict mode, standalone components, and Git.
 - Files affected: Initial Angular frontend files and project documentation structure.
-- Verification performed: Confirmed the application runs at `http://localhost:4200` and completed `npm run build` successfully.
+- Verification performed: Confirmed the application runs at `http://localhost:4200`, completed `npm run build` successfully, and passed 2 unit tests with 0 failures.
 - Decision or learning: Use short, versioned documentation as persistent context instead of relying on chat memory.
-- Related commit: Pending.
+- Related commit: `bde27fa` - chore(project): initialize Angular incident management application.

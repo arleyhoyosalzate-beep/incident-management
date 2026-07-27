@@ -35,12 +35,14 @@ The primary functional requirements are defined in the "Reto formativo de Angula
 
 ## Current Status
 
-- Challenge day: 1.
+- Challenge day 1 is completed.
 - Angular 20 frontend created and verified locally.
+- Production build completed successfully.
+- Initial unit tests passed: 2 specs, 0 failures.
 - Git repository initialized.
-- Documentation structure created.
+- Initial documentation and AI instructions created.
 - Backend and database are planned but not implemented.
 
 ## Next Step
 
-Create the initial project documentation and make the first commit.
+Begin challenge day 2: define typed incident domain models and initial mock data.
