@@ -35,3 +35,41 @@ Record concepts learned, questions, difficulties, and technical decisions that m
 ### Personal Notes
 
 Add your own notes, questions, or discoveries here during the challenge.
+
+## Day 2 - Typed Domain Models
+
+### Concepts Applied
+
+- Union types restrict a value to a fixed set of valid options.
+- Interfaces describe the structure of domain data.
+- Classes are useful when data needs related behavior.
+- `readonly` prevents accidental reassignment of important properties.
+- Optional properties model data that may not exist yet.
+- `import type` imports TypeScript types without generating runtime code.
+
+### Domain Models Created
+
+- `IncidentStatus`
+- `IncidentPriority`
+- `Incident`
+- `UserRole`
+- `User`
+- `IncidentSearchCriteria`
+
+### Technical Decision
+
+The application will use a real Spring Boot API and MySQL when incident data is displayed. It will not use mock incidents as application data.
+
+Test fixtures may still be used in automated tests when needed.
+
+### Evidence
+
+- `npm run build` completed successfully after creating the models.
+
+### Questions to Be Able to Answer
+
+- Why is `IncidentStatus` a union type instead of a free string?
+- Why is `Incident` an interface instead of a class?
+- Why is `IncidentSearchCriteria` a class?
+- Why is `assignedAgentId` optional?
+- Why should the frontend not contain a password field in its user model?

@@ -35,14 +35,14 @@ The primary functional requirements are defined in the "Reto formativo de Angula
 
 ## Current Status
 
-- Challenge day 1 is completed.
-- Angular 20 frontend created and verified locally.
-- Production build completed successfully.
-- Initial unit tests passed: 2 specs, 0 failures.
-- Git repository initialized.
-- Initial documentation and AI instructions created.
-- Backend and database are planned but not implemented.
+- Challenge days 1 and 2 are completed.
+- Angular 20 frontend is created and verified locally.
+- Production build and initial unit tests passed.
+- Typed incident and user domain models are implemented.
+- Application mock data is intentionally avoided; a real API will be used before the incident list is implemented.
+- Git repository, documentation, AI instructions, and daily report for day 1 are in place.
+- Spring Boot, MySQL, and live API integration are not implemented yet.
 
 ## Next Step
 
-Begin challenge day 2: define typed incident domain models and initial mock data.
+Prepare the Spring Boot backend and MySQL environment before implementing an incident list with live data.

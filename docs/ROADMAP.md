@@ -20,6 +20,24 @@ Status: Completed
 - [x] Complete the README.
 - [x] Create the first commit.
 
+## Day 2 - Typed Domain Models
+
+Status: Completed
+
+- [x] Define `IncidentStatus`.
+- [x] Define `IncidentPriority`.
+- [x] Define the `Incident` interface.
+- [x] Define the `User` interface and valid roles.
+- [x] Create `IncidentSearchCriteria`.
+- [x] Verify the frontend build.
+- [x] Document the decision to use a real API instead of application mock data.
+- [x] Record Day 2 learning notes.
+- [ ] Create the Day 2 commit.
+## Next Technical Step
+
+Before displaying an incident list, set up the Spring Boot backend and MySQL environment according to ADR-002.
+
+This ensures the frontend integrates with a real API instead of application mock data.
 ## Phase 1 - Angular Foundations
 
 Days 2 to 7:
