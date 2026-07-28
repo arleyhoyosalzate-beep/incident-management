@@ -55,4 +55,4 @@ Add your approximate time here.
 
 ## Related Commits
 
-Pending.
+- `dcfe71f` - feat(models): define typed incident domain models

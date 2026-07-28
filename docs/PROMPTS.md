@@ -39,4 +39,4 @@ Do not store secrets, access tokens, personal data, or entire chat transcripts.
 - Files affected: `frontend/src/app/core/models/incident.model.ts`, `frontend/src/app/core/models/user.model.ts`, `frontend/src/app/core/models/incident-search-criteria.ts`, `docs/decisions/ADR-002-real-api-instead-of-application-mocks.md`.
 - Verification performed: `npm run build` completed successfully.
 - Decision or learning: Use union types for closed value sets, interfaces for domain data, and a class when search criteria needs behavior.
-- Related commit: Pending.
+- Related commit: `dcfe71f` - feat(models): define typed incident domain models.
