@@ -46,7 +46,20 @@ Status: Completed
 - [x] Verify the frontend build and tests.
 - [x] Create the Day 3 report and commit.
 
+## Day 4 - Backend and MySQL Foundation
 
+Status: In Completed
+
+- [x] Verify Java 21 and Docker Desktop locally.
+- [x] Record the decision to use Spring Boot 4.1.0.
+- [x] Generate the Spring Boot backend with Maven Wrapper.
+- [x] Configure MySQL 8.4 with Docker Compose.
+- [x] Keep local credentials outside Git with `.env`.
+- [x] Configure Spring Boot to connect to MySQL.
+- [x] Verify the backend context with `.\mvnw.cmd test`.
+- [x] Verify `GET /actuator/health` returns `UP`.
+- [x] Update the project documentation and create the Day 4 report.
+- [x] Create the Day 4 commits.
 
 
 ## Next Technical Step

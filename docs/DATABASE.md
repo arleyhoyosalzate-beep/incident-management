@@ -2,7 +2,9 @@
 
 ## Status
 
-Draft. MySQL is not configured yet.
+MySQL 8.4 is configured locally through Docker Compose.
+
+The `incident_management` database and the `incident_app` application user are created automatically when the container starts. The incident domain schema is still a draft; no application entities or domain tables are implemented yet.
 
 ## Purpose
 
@@ -14,6 +16,15 @@ Document the future persistence model for the incident management system.
 - Spring Boot is the only layer that accesses the database.
 - Angular never connects directly to MySQL.
 
+## Local Development Environment
+
+- Docker Compose service: `mysql`.
+- Image: `mysql:8.4`.
+- Database: `incident_management`.
+- Application user: `incident_app`.
+- Host port: `3306`.
+- Persistent Docker volume: `mysql_data`.
+- Local passwords are stored only in `.env` and are excluded from Git.
 ## Initial Domain Entities
 
 ### User

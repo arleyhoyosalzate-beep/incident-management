@@ -4,17 +4,19 @@ A portfolio-oriented technical incident management system built while completing
 
 ## Current Status
 
-The Angular 20 frontend has been initialized and verified locally.
+The Angular 20 frontend is implemented and verified locally.
 
-The Spring Boot backend and MySQL database are planned for later stages.
+The Spring Boot 4.1 backend, MySQL 8.4 Docker environment, and health endpoint are also working locally.
+
+Incident entities and business API endpoints are the next implementation stage.
 
 ## Technology Stack
 
 - Angular 20
 - TypeScript with strict mode
 - SCSS
-- Spring Boot 3 (planned)
-- MySQL (planned)
+- Spring Boot 4.1 with Java 21 and Maven Wrapper
+- MySQL 8.4 with Docker Compose
 - Git and GitHub
 
 ## Project Structure
@@ -22,7 +24,7 @@ The Spring Boot backend and MySQL database are planned for later stages.
 ```text
 incident-management/
 ├── frontend/    # Angular application
-├── backend/     # Future Spring Boot application
+├── backend/     # Spring Boot REST API
 ├── docs/        # Project documentation
 └── .github/     # GitHub Copilot instructions
 ```
@@ -32,7 +34,8 @@ incident-management/
 - Node.js 20.19.0 or newer.
 - npm.
 - Git.
-
+- Java 21.
+- Docker Desktop with WSL 2.
 ## Run the Frontend
 
 ```bash
@@ -49,7 +52,14 @@ Open `http://localhost:4200` in a browser.
 cd frontend
 npm run build
 ```
+## Run the Database
 
+From the repository root:
+
+```powershell
+docker compose up -d
+docker compose ps
+```
 ## Documentation
 
 - `docs/AI_CONTEXT.md`: Persistent project context for AI-assisted work.

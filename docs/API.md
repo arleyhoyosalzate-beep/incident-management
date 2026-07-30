@@ -2,7 +2,7 @@
 
 ## Status
 
-Planned. No backend endpoints are implemented yet.
+Backend foundation implemented. No business API endpoints are implemented yet.
 
 ## Purpose
 
@@ -47,9 +47,16 @@ The system is expected to support:
 - Do not expose database entities directly without reviewing the API contract.
 - Document every implemented endpoint here.
 
-## Implemented Endpoints
+## Implemented Infrastructure Endpoints
 
-None yet.
+### Health Check
+
+- Method: `GET`
+- Path: `/actuator/health`
+- Purpose: verify that the local Spring Boot service is running and healthy.
+- Verified response: `UP`.
+
+This endpoint is provided by Spring Boot Actuator. It is an infrastructure endpoint, not an incident-management business endpoint and is not consumed by the Angular frontend yet.
 
 ## Pending Decisions
 

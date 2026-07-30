@@ -50,3 +50,14 @@ Do not store secrets, access tokens, personal data, or entire chat transcripts.
 - Verificación realizada: `npm test` pasó con 6 specs y 0 failures usando Brave como navegador compatible; `npm run build` completó correctamente.
 - Decisión o aprendizaje: Los tests deben declarar `provideZonelessChangeDetection()` porque la aplicación usa Angular sin Zone.js. Los componentes standalone deben estar presentes en el arreglo `imports` del componente padre.
 - Commit relacionado: `d9bf078` - feat(layout): create initial application shell.
+
+## 2026-07-30 / Día 4
+
+- Objetivo: Preparar una base de backend reproducible con Spring Boot, MySQL y Docker antes de implementar datos reales de incidencias.
+- Contexto proporcionado a la IA: El proyecto usa Angular 20, requiere una API real y evita datos ficticios de aplicación. El equipo local tiene Java 21 y se configuró Docker Desktop con WSL 2.
+- Prompt: Guíame paso a paso para preparar el backend y MySQL localmente.
+- Resultado aplicado: Se registró la adopción de Spring Boot 4.1.0; se generó el backend con Maven Wrapper; se configuró MySQL 8.4 mediante Docker Compose; se protegieron credenciales con `.env`; Spring Boot se conectó a MySQL y Actuator respondió `UP`.
+- Archivos afectados: `backend/`, `docker-compose.yml`, `.gitignore`, `.env.example`, `.vscode/settings.json`, `docs/decisions/ADR-003-spring-boot-4-for-new-backend.md` y documentación del proyecto.
+- Verificación realizada: `docker compose ps` mostró MySQL healthy; `.\mvnw.cmd test` pasó con 1 test; `GET /actuator/health` respondió `UP`.
+- Decisión o aprendizaje: Se usa Spring Boot 4.1.0 porque es la versión estable disponible en Spring Initializr para un proyecto nuevo. Las credenciales locales no se versionan y el backend usa un usuario MySQL limitado.
+- Commit relacionado: 3c61d4f - chore(backend): initialize Spring Boot and MySQL foundation

@@ -11,7 +11,7 @@ Before making changes, review:
 ## Project Structure
 
 - `frontend/`: Angular 20 application.
-- `backend/`: Future Spring Boot 3 application.
+- `backend/`: Spring Boot 4.1 application with Java 21 and Maven Wrapper.
 - `docs/`: Project documentation and technical decisions.
 - `.github/`: GitHub Copilot instructions.
 
@@ -25,6 +25,15 @@ npm run build
 npm test
 ```
 On Windows, if Karma cannot find Chrome, configure `CHROME_BIN` to an approved Chrome-compatible browser before running tests.
+
+## Backend and Database Commands
+
+Run backend commands from `backend/`:
+
+```powershell
+.\mvnw.cmd test
+.\mvnw.cmd spring-boot:run
+```
 ## Development Standards
 
 - Use TypeScript strict mode.

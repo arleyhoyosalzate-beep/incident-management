@@ -87,7 +87,38 @@ Test fixtures may still be used in automated tests when needed.
 - Los estilos globales pertenecen a `styles.scss`; los estilos de cada componente permanecen en su archivo SCSS.
 - Flexbox con `min-height: 100vh` y `flex: 1` permite mantener el footer al final de una pantalla con poco contenido.
 - Las pruebas con `TestBed` son entornos aislados y deben configurar `provideZonelessChangeDetection()` cuando la aplicación usa Angular zoneless.
+## Día 4 - Base de Backend y MySQL
 
+### Conceptos aplicados
+
+- Spring Initializr genera una estructura inicial de Spring Boot y el Maven Wrapper.
+- `mvnw.cmd` permite usar Maven sin instalarlo globalmente.
+- Docker Desktop usa WSL 2 para ejecutar contenedores Linux en Windows.
+- Una imagen es una plantilla; un contenedor es una instancia en ejecución de esa imagen.
+- Docker Compose describe infraestructura local de forma versionada.
+- Un volumen Docker conserva los datos de MySQL aunque el contenedor se detenga.
+- `.env` guarda credenciales locales y `.env.example` documenta las variables necesarias sin exponer secretos.
+- Spring Boot se conecta a MySQL mediante JDBC y HikariCP administra el pool de conexiones.
+- La aplicación utiliza el usuario limitado `incident_app`, no el usuario `root`.
+- Actuator proporciona endpoints técnicos como `/actuator/health`.
+- Un puerto solo puede ser usado por un proceso a la vez; por eso dos instancias no pueden iniciar simultáneamente en el puerto 8080.
+
+### Evidencia
+
+- Docker Desktop inició correctamente con el contexto `desktop-linux`.
+- MySQL 8.4 quedó en estado `healthy`.
+- `.\mvnw.cmd test` pasó con 1 prueba, 0 fallos y 0 errores.
+- Spring Boot conectó correctamente con MySQL 8.4.11.
+- `GET /actuator/health` respondió con estado `UP`.
+
+### Preguntas que debo poder responder
+
+- ¿Por qué usamos Maven Wrapper en lugar de requerir Maven global?
+- ¿Cuál es la diferencia entre una imagen, un contenedor y un volumen Docker?
+- ¿Por qué `.env` no debe subirse a Git?
+- ¿Por qué Spring Boot no debe conectarse a MySQL como `root`?
+- ¿Qué comprueba `/actuator/health` y qué no comprueba?
+- ¿Por qué ocurrió el error de puerto 8080 ocupado?
 ### Componentes creados
 
 - `Header`

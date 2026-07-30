@@ -11,7 +11,7 @@ User
   ↓
 Angular 20 Frontend
   ↓ HTTP / JSON
-Spring Boot 3 Backend
+Spring Boot 4.1 Backend
   ↓
 MySQL Database
 ```
@@ -55,9 +55,12 @@ MySQL will persist:
 
 ## Current State
 
-- The Angular 20 frontend is created and runs locally.
-- The Spring Boot backend is not yet implemented.
-- MySQL is not yet configured.
+- The Angular 20 frontend is created, tested, and runs locally.
+- The Spring Boot 4.1 backend is generated in `backend/` and uses Java 21 with Maven Wrapper.
+- MySQL 8.4 runs locally through Docker Compose and persists data in the `mysql_data` volume.
+- Spring Boot connects to MySQL using the limited `incident_app` database user.
+- The local infrastructure endpoint `GET /actuator/health` returns `UP`.
+- No domain entities, repositories, or business API endpoints are implemented yet.
 
 ## Architectural Principles
 
