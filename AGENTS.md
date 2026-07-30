@@ -22,9 +22,9 @@ Run commands from the `frontend/` directory:
 ```bash
 npm start
 npm run build
-npm test -- --run
+npm test
 ```
-
+On Windows, if Karma cannot find Chrome, configure `CHROME_BIN` to an approved Chrome-compatible browser before running tests.
 ## Development Standards
 
 - Use TypeScript strict mode.

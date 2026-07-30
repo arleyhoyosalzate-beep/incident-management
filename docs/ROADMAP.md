@@ -33,6 +33,22 @@ Status: Completed
 - [x] Document the decision to use a real API instead of application mock data.
 - [x] Record Day 2 learning notes.
 - [x] Create the Day 2 commit.
+
+## Day 3 - Initial Layout Components
+
+Status: Completed
+
+- [x] Create standalone header, page title, and footer components.
+- [x] Compose the components in the root application shell.
+- [x] Display a temporary interface user name.
+- [x] Implement a basic show and hide interaction.
+- [x] Configure zoneless change detection for unit tests.
+- [x] Verify the frontend build and tests.
+- [x] Create the Day 3 report and commit.
+
+
+
+
 ## Next Technical Step
 
 Before displaying an incident list, set up the Spring Boot backend and MySQL environment according to ADR-002.
@@ -44,7 +60,7 @@ Days 2 to 7:
 
 - Define typed incident domain models.
 - Create the initial layout and reusable components.
-- Render mock incident data with modern control flow.
+- Render incidents from the real API with modern control flow once the backend is ready.
 - Implement parent-child communication.
 - Build responsive and accessible styles.
 - Add reusable pipes and directives.
@@ -60,7 +76,7 @@ Days 8 to 14:
 
 ## Phase 3 - Backend and API Integration
 
-Days 15 to 18:
+Begins before the live incident list and continues through days 15 to 18:
 
 - Create the Spring Boot backend.
 - Configure MySQL.

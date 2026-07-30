@@ -73,3 +73,38 @@ Test fixtures may still be used in automated tests when needed.
 - Why is `IncidentSearchCriteria` a class?
 - Why is `assignedAgentId` optional?
 - Why should the frontend not contain a password field in its user model?
+
+## Día 3 - Componentes de estructura inicial
+
+### Conceptos aplicados
+
+- Los componentes standalone deben importarse explícitamente en el componente padre que los utiliza.
+- `input.required<T>()` define una entrada obligatoria y basada en signals.
+- `input<T>()` define una entrada opcional y basada en signals.
+- Una `signal` almacena estado reactivo; se lee con paréntesis, por ejemplo: `isUserMenuOpen()`.
+- El patrón Arrange–Act–Assert organiza las pruebas según preparación, acción y verificación.
+- Las etiquetas semánticas `header`, `main` y `footer` mejoran la estructura y accesibilidad.
+- Los estilos globales pertenecen a `styles.scss`; los estilos de cada componente permanecen en su archivo SCSS.
+- Flexbox con `min-height: 100vh` y `flex: 1` permite mantener el footer al final de una pantalla con poco contenido.
+- Las pruebas con `TestBed` son entornos aislados y deben configurar `provideZonelessChangeDetection()` cuando la aplicación usa Angular zoneless.
+
+### Componentes creados
+
+- `Header`
+- `PageTitle`
+- `Footer`
+
+### Evidencia
+
+- `npm test`: 6 specs, 0 failures.
+- `npm run build`: compilación de producción exitosa.
+- Se verificó manualmente que el menú de usuario se muestra y se oculta.
+
+### Preguntas que debo poder responder
+
+- ¿Por qué un componente standalone debe declararse en `imports`?
+- ¿Cuál es la diferencia entre una signal interna y un input basado en signal?
+- ¿Por qué un input puede ser obligatorio?
+- ¿Qué representan Arrange, Act y Assert en una prueba?
+- ¿Por qué las pruebas fallaron al requerir Zone.js?
+- ¿Por qué no usamos `position: fixed` para mantener el footer abajo?

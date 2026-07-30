@@ -40,3 +40,13 @@ Do not store secrets, access tokens, personal data, or entire chat transcripts.
 - Verification performed: `npm run build` completed successfully.
 - Decision or learning: Use union types for closed value sets, interfaces for domain data, and a class when search criteria needs behavior.
 - Related commit: `dcfe71f` - feat(models): define typed incident domain models.
+## 2026-07-30 / Día 3
+
+- Objetivo: Crear la estructura visual inicial de Angular mediante componentes standalone reutilizables.
+- Contexto proporcionado a la IA: Reto formativo de Angular 20, aplicación de gestión de incidencias, TypeScript estricto, SCSS, componentes standalone y aprendizaje guiado paso a paso.
+- Prompt: Guíame paso a paso y explícame cada decisión al crear el layout inicial del proyecto.
+- Resultado aplicado: Se crearon los componentes `Header`, `PageTitle` y `Footer`; se compusieron en `App`; se añadió un menú de usuario temporal con mostrar/ocultar basado en signals; se aplicaron estilos globales y por componente.
+- Archivos afectados: Componentes en `frontend/src/app/layout/`, `app.ts`, `app.html`, `app.scss`, `styles.scss`, pruebas unitarias y `tsconfig.app.json`.
+- Verificación realizada: `npm test` pasó con 6 specs y 0 failures usando Brave como navegador compatible; `npm run build` completó correctamente.
+- Decisión o aprendizaje: Los tests deben declarar `provideZonelessChangeDetection()` porque la aplicación usa Angular sin Zone.js. Los componentes standalone deben estar presentes en el arreglo `imports` del componente padre.
+- Commit relacionado: `d9bf078` - feat(layout): create initial application shell.

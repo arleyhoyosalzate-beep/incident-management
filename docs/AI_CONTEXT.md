@@ -35,12 +35,15 @@ The primary functional requirements are defined in the "Reto formativo de Angula
 
 ## Current Status
 
-- Challenge days 1 and 2 are completed.
-- Angular 20 frontend is created and verified locally.
-- Production build and initial unit tests passed.
+- Challenge days 1, 2, and 3 are completed.
+- Angular 20 frontend uses TypeScript strict mode, standalone components, SCSS, and zoneless change detection.
+- The initial application shell contains reusable `Header`, `PageTitle`, and `Footer` components.
+- The temporary user menu uses a signal to show and hide its panel.
+- Unit tests use `provideZonelessChangeDetection()` to match the application's Angular configuration.
+- `npm test` passed with 6 specs and 0 failures.
+- `npm run build` completed successfully.
 - Typed incident and user domain models are implemented.
 - Application mock data is intentionally avoided; a real API will be used before the incident list is implemented.
-- Git repository, documentation, AI instructions, and daily report for day 1 are in place.
 - Spring Boot, MySQL, and live API integration are not implemented yet.
 
 ## Next Step
