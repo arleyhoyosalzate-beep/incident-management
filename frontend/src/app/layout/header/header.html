@@ -1,0 +1,24 @@
+<header class="app-header">
+  <a class="app-header__brand" href="/" aria-label="Inicio de Incident Manager">
+    Incident Manager
+  </a>
+
+  <div class="app-header__user-menu">
+    <button
+      class="app-header__user-button"
+      type="button"
+      [attr.aria-expanded]="isUserMenuOpen()"
+      aria-controls="user-menu-panel"
+      (click)="toggleUserMenu()"
+    >
+      <span class="app-header__avatar" aria-hidden="true">AH</span>
+      <span>{{ userName }}</span>
+    </button>
+
+    @if (isUserMenuOpen()) {
+      <div id="user-menu-panel" class="app-header__menu-panel">
+        <p>Sesión de demostración</p>
+      </div>
+    }
+  </div>
+</header>

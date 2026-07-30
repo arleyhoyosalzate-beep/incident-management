@@ -1,0 +1,20 @@
+:host {
+  display: block;
+}
+
+.app-footer {
+  border-top: 1px solid #dbe3ef;
+  margin-top: 3rem;
+}
+
+.app-footer__content {
+  color: #64748b;
+  font-size: 0.875rem;
+  margin: 0 auto;
+  max-width: 75rem;
+  padding: 1.5rem;
+}
+
+.app-footer__content p {
+  margin: 0;
+}
