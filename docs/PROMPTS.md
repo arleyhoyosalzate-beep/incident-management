@@ -61,3 +61,14 @@ Do not store secrets, access tokens, personal data, or entire chat transcripts.
 - Verificación realizada: `docker compose ps` mostró MySQL healthy; `.\mvnw.cmd test` pasó con 1 test; `GET /actuator/health` respondió `UP`.
 - Decisión o aprendizaje: Se usa Spring Boot 4.1.0 porque es la versión estable disponible en Spring Initializr para un proyecto nuevo. Las credenciales locales no se versionan y el backend usa un usuario MySQL limitado.
 - Commit relacionado: 3c61d4f - chore(backend): initialize Spring Boot and MySQL foundation
+
+## 2026-08-04 / Replanificación por mentor
+
+- Objetivo: Alinear el plan del reto con las directrices del mentor.
+- Contexto proporcionado a la IA: El mentor indicó frontend primero, comprensión conceptual antes de avanzar y migración obligatoria a Gradle antes de reanudar backend.
+- Prompt: Modifica todo el plan de trabajo del reto con las directivas del mentor y lo que debo aprender.
+- Resultado aplicado: Se reescribió el roadmap para completar primero los días frontend del reto; se registró la pausa backend, el uso temporal de datos locales tipados y la futura migración Maven-Gradle.
+- Archivos afectados: AGENTS.md, README.md, documentación de arquitectura y API, contexto de IA, aprendizaje y ADR-004/ADR-005.
+- Verificación realizada: Revisión documental pendiente de commit; no se modificó código de aplicación.
+- Decisión o aprendizaje: Las directrices del mentor prevalecen sobre decisiones anteriores y los cambios de dirección se documentan sin reescribir el historial.
+- Commit relacionado: Pendiente.

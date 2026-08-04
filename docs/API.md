@@ -1,67 +1,44 @@
-# API Contract
+# Contrato de API
 
-## Status
+## Estado
 
-Backend foundation implemented. No business API endpoints are implemented yet.
+La API de negocio está pausada por directriz del mentor mientras se completan las fases frontend.
 
-## Purpose
+El único endpoint existente es técnico:
 
-Define the contract between the Angular frontend and the Spring Boot backend.
+- GET /actuator/health
 
-## Communication Format
+No existen endpoints de incidencias, usuarios, autenticación o comentarios. Angular no consume ningún endpoint todavía.
 
-- Protocol: HTTP.
-- Data format: JSON.
-- Backend responsibility: validation, business rules, authorization, and persistence.
-- Frontend responsibility: call the API through dedicated services and display useful feedback.
+## Decisión temporal de frontend
 
-## Planned Resources
+Durante los días frontend iniciales, la interfaz utilizará incidencias locales tipadas. Esos datos existen para aprender presentación, interacción, estado y formularios; no representan una API ni una fuente de datos definitiva.
+
+Antes de implementar API de negocio:
+
+1. Finalizar las fases frontend previstas.
+2. Migrar backend de Maven a Gradle Wrapper.
+3. Verificar Gradle, MySQL y el endpoint de salud.
+4. Definir el contrato HTTP.
+
+## Contrato futuro
+
+- Protocolo: HTTP.
+- Formato: JSON.
+- Frontend: servicios dedicados, no componentes.
+- Backend: validación, reglas de negocio, persistencia y autorización.
+
+## Recursos previstos
 
 - Incidents.
 - Users.
 - Roles.
 - Comments.
-- Incident assignments.
+- Assignments.
 
-## Planned Operations
+## Decisiones pendientes
 
-The system is expected to support:
-
-- List incidents.
-- Create an incident.
-- View incident details.
-- Update an incident.
-- Delete an incident.
-- Change incident status.
-- Assign an incident to an agent.
-- Add comments.
-- Authenticate users.
-- Filter and search incidents.
-
-## Endpoint Design Rules
-
-- Use resource-oriented URLs.
-- Use standard HTTP methods.
-- Return meaningful HTTP status codes.
-- Validate input on the backend.
-- Do not expose database entities directly without reviewing the API contract.
-- Document every implemented endpoint here.
-
-## Implemented Infrastructure Endpoints
-
-### Health Check
-
-- Method: `GET`
-- Path: `/actuator/health`
-- Purpose: verify that the local Spring Boot service is running and healthy.
-- Verified response: `UP`.
-
-This endpoint is provided by Spring Boot Actuator. It is an infrastructure endpoint, not an incident-management business endpoint and is not consumed by the Angular frontend yet.
-
-## Pending Decisions
-
-- API base path.
-- Authentication strategy.
-- Error response format.
-- Pagination format.
-- Filter and sorting query parameters.
+- Ruta base de API.
+- Formato de errores.
+- Paginación, filtros y ordenamiento.
+- Autenticación y autorización.

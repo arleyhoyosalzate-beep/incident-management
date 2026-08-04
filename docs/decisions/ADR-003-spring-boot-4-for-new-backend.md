@@ -16,7 +16,7 @@ The backend has not been implemented yet, so there is no existing Spring Boot 3 
 
 ## Decision
 
-Use Spring Boot 4.1.0 with Java 21, Maven Wrapper, JAR packaging, and MySQL for the incident management backend.
+Use Spring Boot 4.1.0 with Java 21, Maven Wrapper, JAR packaging, and MySQL for the initial incident management backend foundation.
 
 Do not use snapshot versions.
 
@@ -25,7 +25,7 @@ Do not use snapshot versions.
 - Update the project documentation from Spring Boot 3 to Spring Boot 4.
 - Use Java 21 as the backend baseline.
 - Verify compatibility before adding third-party libraries in the future.
-- Use the generated Maven Wrapper instead of requiring a global Maven installation.
+- The Maven Wrapper was used to verify the initial foundation. ADR-005 supersedes Maven as the future backend build tool and requires Gradle Wrapper before backend work resumes.
 
 ## Alternatives Considered
 

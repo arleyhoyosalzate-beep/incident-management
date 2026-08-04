@@ -1,127 +1,213 @@
-# Project Roadmap
+# Plan de trabajo del reto
 
-## Reference
+## Fuente y prioridad
 
-The main learning requirements are defined in the Angular 20 training challenge document.
+La fuente funcional principal es el reto formativo de Angular 20.
 
-This roadmap adapts that challenge to a portfolio-quality full-stack incident management system.
+Las directrices del mentor tienen prioridad sobre decisiones anteriores:
 
-## Day 1 - Environment and Project Setup
+- El foco actual es exclusivamente frontend.
+- Se requiere comprensión conceptual antes de avanzar.
+- Se usarán datos locales tipados y temporales en las etapas iniciales.
+- El backend queda pausado.
+- Gradle Wrapper será obligatorio antes de retomar backend.
 
-Status: Completed
+## Estado y sesiones realizadas
 
-- [x] Verify Node.js, npm, and Git.
-- [x] Create the Angular 20 frontend.
-- [x] Enable routing, SCSS, strict mode, and standalone components.
-- [x] Run the application locally.
-- [x] Run a production build.
-- [x] Initialize the Git repository.
-- [x] Create the initial documentation structure.
-- [x] Complete the README.
-- [x] Create the first commit.
+| Sesión real | Objetivo | Estado |
+|---|---|---|
+| 1 | Día 1 oficial: entorno y proyecto Angular | Completado |
+| 2 | Día 2 oficial: modelos TypeScript | Completado |
+| 3 | Día 3 oficial: componentes iniciales | Completado |
+| 4 | Hito adicional: base backend, Docker y MySQL | Completado y pausado |
+| 5 | Día 4 oficial: flujo de control moderno | Siguiente |
 
-## Day 2 - Typed Domain Models
+El hito adicional no sustituye ningún día oficial. Por eso el reto requerirá una sesión adicional respecto al calendario original.
 
-Status: Completed
+## Regla de aprendizaje
 
-- [x] Define `IncidentStatus`.
-- [x] Define `IncidentPriority`.
-- [x] Define the `Incident` interface.
-- [x] Define the `User` interface and valid roles.
-- [x] Create `IncidentSearchCriteria`.
-- [x] Verify the frontend build.
-- [x] Document the decision to use a real API instead of application mock data.
-- [x] Record Day 2 learning notes.
-- [x] Create the Day 2 commit.
+Antes de marcar cualquier objetivo como completado se debe poder explicar:
 
-## Day 3 - Initial Layout Components
+1. Qué es el concepto.
+2. Dónde se usa en este proyecto.
+3. Qué problema resuelve.
+4. Cómo se verificó la funcionalidad.
 
-Status: Completed
+Preguntas de estudio prioritarias:
 
-- [x] Create standalone header, page title, and footer components.
-- [x] Compose the components in the root application shell.
-- [x] Display a temporary interface user name.
-- [x] Implement a basic show and hide interaction.
-- [x] Configure zoneless change detection for unit tests.
-- [x] Verify the frontend build and tests.
-- [x] Create the Day 3 report and commit.
+- Entorno de desarrollo.
+- Dependencia y gestor de dependencias.
+- Node.js, npm y Angular CLI.
+- package.json y package-lock.json.
+- Arquitectura MVC y arquitectura basada en componentes.
+- Models, Services, Auth, Guards e Interceptors.
+- Componentes standalone, inputs, outputs, signals y flujo de control.
 
-## Day 4 - Backend and MySQL Foundation
+## Días completados
 
-Status: In Completed
+### Día 1 - Entorno y proyecto Angular
 
-- [x] Verify Java 21 and Docker Desktop locally.
-- [x] Record the decision to use Spring Boot 4.1.0.
-- [x] Generate the Spring Boot backend with Maven Wrapper.
-- [x] Configure MySQL 8.4 with Docker Compose.
-- [x] Keep local credentials outside Git with `.env`.
-- [x] Configure Spring Boot to connect to MySQL.
-- [x] Verify the backend context with `.\mvnw.cmd test`.
-- [x] Verify `GET /actuator/health` returns `UP`.
-- [x] Update the project documentation and create the Day 4 report.
-- [x] Create the Day 4 commits.
+Estado: Completado.
 
+- [x] Crear Angular 20 con routing, SCSS, strict mode y componentes standalone.
+- [x] Ejecutar aplicación y build.
+- [x] Inicializar Git y documentación.
 
-## Next Technical Step
+### Día 2 - Modelos tipados
 
-Before displaying an incident list, set up the Spring Boot backend and MySQL environment according to ADR-002.
+Estado: Completado.
 
-This ensures the frontend integrates with a real API instead of application mock data.
-## Phase 1 - Angular Foundations
+- [x] Definir IncidentStatus e IncidentPriority.
+- [x] Definir Incident, User e IncidentSearchCriteria.
+- [x] Evitar any y verificar build.
 
-Days 2 to 7:
+### Día 3 - Componentes iniciales
 
-- Define typed incident domain models.
-- Create the initial layout and reusable components.
-- Render incidents from the real API with modern control flow once the backend is ready.
-- Implement parent-child communication.
-- Build responsive and accessible styles.
-- Add reusable pipes and directives.
+Estado: Completado.
 
-## Phase 2 - State and Forms
+- [x] Crear Header, PageTitle y Footer standalone.
+- [x] Componerlos en App.
+- [x] Usar una signal para mostrar u ocultar menú de usuario.
+- [x] Verificar build y seis pruebas unitarias.
 
-Days 8 to 14:
+## Hito adicional - Base técnica backend
 
-- Create services and Signals-based state.
-- Build typed reactive forms and custom validators.
-- Configure routes, child routes, and lazy loading.
-- Define the frontend architecture for incidents.
+Estado: Completado y congelado.
 
-## Phase 3 - Backend and API Integration
+- [x] Crear base Spring Boot 4.1, Java 21, MySQL 8.4 y Docker Compose.
+- [x] Verificar conexión y endpoint técnico de salud.
+- [ ] Migrar obligatoriamente Maven a Gradle Wrapper antes de reanudar backend.
 
-Begins before the live incident list and continues through days 15 to 18:
+No se agregarán endpoints, entidades, migraciones ni cambios de backend durante las fases frontend.
 
-- Create the Spring Boot backend.
-- Configure MySQL.
-- Define and implement the REST API.
-- Integrate Angular with HttpClient.
-- Implement RxJS search and HTTP error handling.
+## Plan frontend activo
 
-## Phase 4 - Authentication and Application State
+### Día 4 - Plantillas y flujo de control moderno
 
-Days 19 to 23:
+Estado: Siguiente.
 
-- Implement authentication flow.
-- Add authorization by role.
-- Centralize incident state.
-- Add filters, sorting, and pagination.
-- Create reusable shared components.
+Objetivo: renderizar incidencias locales tipadas.
 
-## Phase 5 - Quality, Performance, and Delivery
+- [ ] Crear datos locales temporales de Incident.
+- [ ] Crear un contenedor de listado de incidencias.
+- [ ] Renderizar con @for y track incident.id.
+- [ ] Mostrar @empty cuando no existan incidencias.
+- [ ] Usar @if para información opcional.
+- [ ] Usar @switch para los estados.
+- [ ] Diferenciar visualmente prioridades.
+- [ ] Crear pruebas, ejecutar build y documentar.
 
-Days 24 to 30:
+Conceptos: @for, track, @empty, @if, @switch, interpolación y clases CSS.
 
-- Add unit, HTTP, routing, guard, and interceptor tests.
-- Improve performance and lazy loading.
-- Review security and configuration.
-- Document, deploy, and present the project.
+### Día 5 - Comunicación padre e hijo
 
-## Rule for Progress
+Objetivo: crear IncidentCard como componente de presentación reutilizable.
 
-Do not mark a day as complete until:
+- [ ] Recibir Incident mediante input.required.
+- [ ] Emitir eventos tipados de selección y solicitud de eliminación.
+- [ ] Mantener la colección en el componente contenedor.
+- [ ] No modificar inputs desde el hijo.
 
-- The feature works.
-- Relevant checks pass.
-- Documentation is updated when needed.
-- A descriptive commit exists.
-- The implemented concepts can be explained.
+Conceptos: inputs, outputs, inmutabilidad, componentes contenedores y de presentación.
+
+### Día 6 - Diseño adaptable y accesibilidad
+
+- [ ] Crear variables globales de diseño.
+- [ ] Crear cuadrícula responsive.
+- [ ] Aplicar estados hover, focus y disabled.
+- [ ] Verificar teclado, contraste y nombres accesibles.
+
+### Día 7 - Pipes
+
+- [ ] Aplicar DatePipe y formato de texto.
+- [ ] Crear RelativeTimePipe.
+- [ ] Crear pipe de prioridad legible.
+- [ ] Probar un pipe personalizado.
+
+### Día 8 - Directivas
+
+- [ ] Crear directiva para incidencias críticas.
+- [ ] Crear comportamiento de foco reutilizable.
+- [ ] Probar una directiva.
+
+### Día 9 - Servicios e inyección de dependencias
+
+- [ ] Crear IncidentService local.
+- [ ] Mover datos temporales fuera de componentes.
+- [ ] Encapsular operaciones de consulta, creación y eliminación.
+
+### Día 10 - Signals y estado
+
+- [ ] Convertir colección y filtros en signals.
+- [ ] Crear computed para indicadores.
+- [ ] Mantener actualizaciones inmutables.
+
+### Días 11 y 12 - Formularios reactivos
+
+- [ ] Crear formulario tipado de incidencias.
+- [ ] Añadir validaciones y mensajes accesibles.
+- [ ] Crear validadores personalizados y etiquetas dinámicas.
+
+### Días 13 y 14 - Routing y carga diferida
+
+- [ ] Crear rutas de incidencias, detalle, creación, dashboard y 404.
+- [ ] Crear rutas hijas y lazy loading.
+- [ ] Verificar fragmentos de compilación.
+
+## Puerta obligatoria antes de backend
+
+Antes del Día 15:
+
+- [ ] Finalizar objetivos frontend de los días 4 a 14.
+- [ ] Migrar backend de Maven a Gradle Wrapper en una tarea aislada.
+- [ ] Ejecutar .\gradlew.bat test.
+- [ ] Ejecutar .\gradlew.bat bootRun.
+- [ ] Verificar que MySQL y health check siguen funcionando.
+- [ ] Actualizar README, AGENTS y decisiones.
+
+## Integración y fases posteriores
+
+### Día 15 - HttpClient y CRUD
+
+Solo después de la puerta de Gradle:
+
+- Reemplazar datos locales por una capa HTTP tipada.
+- Implementar consulta, creación, actualización y eliminación.
+- Mostrar estados de carga, vacío y error.
+
+### Días 16 a 18 - RxJS, ciclo de vida e HTTP
+
+- Búsqueda reactiva con debounce y cancelación.
+- Gestión de suscripciones.
+- Interceptors funcionales y manejo global de errores.
+
+### Días 19 y 20 - Auth y Guards
+
+- Autenticación simulada.
+- Servicio de autenticación.
+- Guards de autenticación y autorización por roles.
+
+### Días 21 a 23 - Estado y componentes compartidos
+
+- Store con signals.
+- Filtros, ordenamiento y paginación.
+- Modal, confirmación, estado vacío y carga.
+
+### Días 24 a 30 - Calidad y entrega
+
+- Pruebas unitarias, HTTP, routing, guards e interceptors.
+- Rendimiento y carga diferida.
+- Seguridad y configuración.
+- Documentación, despliegue, estabilización y presentación final.
+
+## Definición de terminado diaria
+
+Un día se completa solamente si:
+
+- La funcionalidad cumple el objetivo.
+- Se entiende y puede explicarse.
+- Build y pruebas relevantes pasan.
+- No se dañan funcionalidades previas.
+- Se actualiza documentación pertinente.
+- Existe un commit descriptivo.
+- Existe un informe diario con evidencia, dificultades y trabajo pendiente.

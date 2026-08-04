@@ -1,62 +1,65 @@
-# Project Instructions
+# Instrucciones del proyecto
 
-## Read First
+## Leer antes de cambiar código
 
-Before making changes, review:
+Revisar:
 
-- `docs/AI_CONTEXT.md`
-- `docs/PROMPTS.md`
-- Relevant files in `docs/decisions/`
+- docs/AI_CONTEXT.md
+- docs/ROADMAP.md
+- docs/PROMPTS.md
+- Las decisiones relevantes en docs/decisions/
 
-## Project Structure
+## Directrices prioritarias del mentor
 
-- `frontend/`: Angular 20 application.
-- `backend/`: Spring Boot 4.1 application with Java 21 and Maven Wrapper.
-- `docs/`: Project documentation and technical decisions.
-- `.github/`: GitHub Copilot instructions.
+1. El trabajo activo se concentra exclusivamente en el frontend Angular.
+2. No se deben agregar entidades, endpoints, migraciones, cambios de MySQL ni código de negocio backend hasta retomar explícitamente la integración HTTP.
+3. El aprendizaje conceptual es un criterio de avance: antes de implementar una funcionalidad, explicar qué problema resuelve y cómo se verifica.
+4. Durante las etapas frontend se usarán datos locales temporales, tipados e inmutables para cumplir los objetivos formativos.
+5. Antes de cualquier nuevo trabajo backend, la base actual debe migrarse obligatoriamente de Maven a Gradle Wrapper.
 
-## Frontend Commands
+## Estructura
 
-Run commands from the `frontend/` directory:
+- frontend/: aplicación Angular 20 y foco actual.
+- backend/: base técnica pausada; actualmente usa Maven solo de forma histórica y debe migrar a Gradle antes de reanudarse.
+- docs/: contexto, decisiones, aprendizaje e informes.
 
-```bash
+## Comandos frontend
+
+Ejecutar desde frontend/:
+
+~~~powershell
 npm start
 npm run build
 npm test
-```
-On Windows, if Karma cannot find Chrome, configure `CHROME_BIN` to an approved Chrome-compatible browser before running tests.
+~~~
 
-## Backend and Database Commands
+Si Karma no encuentra un navegador compatible, configurar CHROME_BIN en la sesión de terminal antes de ejecutar las pruebas.
 
-Run backend commands from `backend/`:
+## Regla futura para backend
 
-```powershell
-.\mvnw.cmd test
-.\mvnw.cmd spring-boot:run
-```
-## Development Standards
+Cuando el plan llegue a integración HTTP:
 
-- Use TypeScript strict mode.
-- Do not use `any` without documented justification.
-- Use standalone Angular components.
-- Keep code, identifiers, branches, and commits in English.
-- Keep documentation in Spanish unless a technical integration requires English.
-- Prefer small, cohesive components and explicit types.
-- Do not place business logic in Angular templates.
-- Do not make HTTP requests directly from components.
+- Migrar y verificar Gradle Wrapper antes de agregar código backend.
+- Los comandos esperados serán .\gradlew.bat test y .\gradlew.bat bootRun.
+- No instalar Gradle globalmente como requisito.
 
-## Workflow
+## Estándares
 
-1. Understand the requirement and acceptance criteria.
-2. Propose the smallest safe implementation.
-3. Implement one focused task.
-4. Run relevant checks.
-5. Update documentation when a decision or AI-assisted change matters.
-6. Report changed files, verification, and remaining risks.
+- Usar TypeScript estricto y no usar any sin justificación documentada.
+- Usar componentes Angular standalone.
+- Mantener código, identificadores y commits en inglés.
+- Mantener la documentación en español.
+- Evitar lógica de negocio compleja en templates.
+- No hacer solicitudes HTTP directamente desde componentes.
+- Mantener componentes pequeños, cohesionados y con responsabilidades claras.
+- No versionar secretos, contraseñas, tokens ni el archivo .env.
 
-## Safety
+## Flujo de cada sesión
 
-- Do not commit secrets, passwords, tokens, or API keys.
-- Do not make destructive changes without explicit confirmation.
-- Preserve existing user changes.
-- Do not change the architecture without documenting the reason.
+1. Leer objetivo y criterios de aceptación.
+2. Estudiar y explicar los conceptos asociados.
+3. Diseñar el cambio mínimo.
+4. Implementar una tarea enfocada.
+5. Ejecutar build, pruebas y verificación visual pertinentes.
+6. Registrar aprendizaje, decisión o prompt cuando aplique.
+7. Revisar cambios antes de crear un commit descriptivo.

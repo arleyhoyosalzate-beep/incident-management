@@ -1,71 +1,55 @@
-# Architecture
+# Arquitectura
 
-## Purpose
+## Enfoque actual
 
-Define the high-level architecture of the technical incident management system.
+El proyecto tiene una arquitectura full-stack prevista, pero el trabajo activo se limita al frontend hasta completar las bases de Angular indicadas por el mentor.
 
-## System Overview
-
-```text
-User
+~~~text
+Usuario
   ↓
-Angular 20 Frontend
+Angular 20 frontend
+  ↓
+Datos locales tipados temporales
+~~~
+
+La futura integración será:
+
+~~~text
+Angular 20 frontend
   ↓ HTTP / JSON
-Spring Boot 4.1 Backend
+Spring Boot 4.1 con Gradle Wrapper
   ↓
-MySQL Database
-```
+MySQL 8.4
+~~~
 
-## Frontend Responsibilities
+## Responsabilidades frontend
 
-The Angular application will:
+- Representar información de incidencias.
+- Gestionar estado de interfaz mediante signals.
+- Mantener modelos tipados.
+- Usar componentes pequeños y reutilizables.
+- Usar datos locales temporales a través de una capa de servicio cuando se llegue al Día 9.
+- Implementar formularios, rutas, accesibilidad y pruebas.
 
-- Display incident information.
-- Provide forms and validation.
-- Manage local user interface state.
-- Call the backend through dedicated services.
-- Protect routes according to the authenticated user role.
+## Reglas de separación
 
-## Backend Responsibilities
+- Los templates no contienen lógica de negocio compleja.
+- Los componentes no realizan HTTP directamente.
+- Los datos del dominio se representan mediante models tipados.
+- Los componentes contenedores administran colecciones y estado.
+- Los componentes de presentación reciben datos y emiten eventos.
 
-The Spring Boot application will:
+## Estado backend
 
-- Expose a REST API.
-- Apply business rules and validation.
-- Manage authentication and authorization.
-- Persist data in MySQL.
-- Return meaningful HTTP responses and error messages.
+- La base Spring Boot, MySQL y Docker está verificada pero pausada.
+- No se deben añadir entidades, repositorios, endpoints ni migraciones durante el bloque frontend.
+- La configuración Maven actual no es definitiva.
+- Antes de retomar backend se migrará a Gradle Wrapper y se verificará con pruebas.
 
-## Database Responsibilities
+## Principios
 
-MySQL will persist:
-
-- Users.
-- Roles.
-- Incidents.
-- Comments.
-- Incident assignments.
-
-## Communication Rules
-
-- The frontend communicates with the backend through HTTP and JSON.
-- Angular components do not call HTTP directly; services handle API communication.
-- The backend is the only layer that accesses the database.
-- API contracts must be documented in `docs/API.md`.
-
-## Current State
-
-- The Angular 20 frontend is created, tested, and runs locally.
-- The Spring Boot 4.1 backend is generated in `backend/` and uses Java 21 with Maven Wrapper.
-- MySQL 8.4 runs locally through Docker Compose and persists data in the `mysql_data` volume.
-- Spring Boot connects to MySQL using the limited `incident_app` database user.
-- The local infrastructure endpoint `GET /actuator/health` returns `UP`.
-- No domain entities, repositories, or business API endpoints are implemented yet.
-
-## Architectural Principles
-
-- Separate responsibilities by layer.
-- Keep the frontend independent from database details.
-- Validate data in both frontend and backend when appropriate.
-- Prefer simple, maintainable solutions over unnecessary complexity.
-- Document important architectural decisions in `docs/decisions/`.
+- Comprensión antes de implementación.
+- Separación de responsabilidades.
+- Tipado explícito.
+- Cambios pequeños y verificables.
+- Decisiones relevantes documentadas.

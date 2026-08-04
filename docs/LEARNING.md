@@ -36,6 +36,51 @@ Record concepts learned, questions, difficulties, and technical decisions that m
 
 Add your own notes, questions, or discoveries here during the challenge.
 
+## Plan de estudio guiado por mentor
+
+### Regla de aprendizaje
+
+Antes de implementar un concepto, debo poder responder: qué es, dónde se usa en este proyecto y qué problema resuelve.
+
+### Entorno de desarrollo
+
+- Es el conjunto de herramientas para construir, ejecutar y probar software.
+- En este proyecto incluye VS Code, Node.js, npm, Angular CLI, Git, navegador y terminal.
+- Su propósito es permitir un trabajo reproducible antes de desplegar una aplicación.
+
+### Dependencias y gestores
+
+- Una dependencia es una librería externa que el proyecto necesita, por ejemplo Angular o RxJS.
+- npm es el gestor de dependencias del frontend.
+- package.json declara dependencias y scripts.
+- package-lock.json fija versiones exactas para reproducir instalaciones con npm ci.
+
+### Angular CLI
+
+- Es la herramienta de comandos de Angular.
+- Crea componentes, inicia servidor local, compila y ejecuta pruebas.
+- npm start, npm run build y npm test usan la CLI local del proyecto.
+
+### Arquitectura y responsabilidades
+
+- MVC separa Model, View y Controller.
+- Angular es principalmente una arquitectura basada en componentes, no MVC clásico.
+- Models representan datos del dominio.
+- Services centralizan datos, reglas reutilizables o comunicación externa.
+- Auth identifica y administra sesión de usuario.
+- Guards deciden si se puede navegar a una ruta.
+- Interceptors procesan peticiones HTTP de forma transversal.
+
+### Preguntas para práctica oral
+
+- ¿Qué diferencia hay entre una dependencia y npm?
+- ¿Por qué package-lock.json es útil al trabajar en otro PC?
+- ¿Qué automatiza Angular CLI?
+- ¿Por qué Angular standalone no requiere AppModule?
+- ¿Por qué un componente no debe llamar HTTP directamente?
+- ¿Por qué Models y Services tienen responsabilidades distintas?
+- ¿Por qué Auth, Guards e Interceptors se implementarán después de routing y HTTP?
+
 ## Day 2 - Typed Domain Models
 
 ### Concepts Applied

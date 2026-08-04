@@ -1,51 +1,63 @@
-# AI Context
+# Contexto persistente de IA
 
-## Purpose
+## Propósito
 
-Build a portfolio-quality technical incident management system while learning a professional AI-assisted development workflow.
+Construir un sistema de gestión de incidencias mientras se aprende Angular 20 y un flujo profesional de desarrollo asistido por IA.
 
-## Main Requirement Source
+## Fuente de requisitos
 
-The primary functional requirements are defined in the "Reto formativo de Angular 20" document.
+El reto formativo de Angular 20 define los objetivos funcionales. Las directrices recientes del mentor tienen prioridad sobre decisiones anteriores.
 
-## Target Stack
+## Directrices activas del mentor
 
-- Frontend: Angular 20, TypeScript strict mode, standalone components, SCSS.
-- Backend: Spring Boot 4.1, Java 21, and Maven Wrapper.
-- Database: MySQL 8.4 through Docker Compose.
-- IDE: Visual Studio Code.
-- Version control: Git and GitHub.
+- Enfocar el trabajo actual en frontend Angular.
+- Entender y poder explicar conceptos técnicos antes de avanzar.
+- Usar datos locales tipados y temporales durante las etapas frontend iniciales.
+- No continuar trabajo backend, base de datos ni API por ahora.
+- Migrar obligatoriamente de Maven a Gradle Wrapper antes de reanudar backend.
 
-## Working Agreement
+## Stack activo
 
-- Analyze the requirement before writing code.
-- Design and document relevant decisions before implementing.
-- Work in small, verifiable tasks.
-- Run tests and builds before each commit.
-- Use AI as a collaborator, not as an unquestioned source of code.
-- Review generated code critically and understand it before continuing.
+- Angular 20.
+- TypeScript estricto.
+- Componentes standalone.
+- SCSS.
+- Node.js y npm.
+- Git y GitHub.
 
-## Code Rules
+## Stack preparado y pausado
 
-- Use English for code, branch names, and commits.
-- Do not use `any` without documented justification.
-- Prefer clarity over unnecessary complexity.
-- Do not change the architecture without recording the reason.
-- Do not store secrets, passwords, tokens, or API keys in the repository.
+- Spring Boot 4.1.
+- Java 21.
+- MySQL 8.4 con Docker Compose.
+- La base existente usa Maven de forma histórica; Gradle Wrapper será el build tool definitivo.
 
-## Current Status
+## Estado actual
 
-- Challenge days 1, 2, and 3 are completed.
-- Días 1 a 4 completados. La base del backend con Spring Boot, MySQL y Docker está funcional.
-- Angular 20 frontend uses TypeScript strict mode, standalone components, SCSS, and zoneless change detection.
-- Typed incident and user domain models are implemented.
-- Spring Boot 4.1 backend is generated in `backend/` and verified with Java 21 and Maven Wrapper.
-- MySQL 8.4 runs locally through Docker Compose.
-- Local database credentials are stored in `.env`, which is excluded from Git; `.env.example` documents the required variables.
-- Spring Boot connects to MySQL as `incident_app`, not as `root`.
-- `GET /actuator/health` returns `UP`.
-- Application mock data is intentionally avoided; no incident entities, repositories, or business API endpoints are implemented yet.
+- Días oficiales 1, 2 y 3 completados.
+- La sesión adicional de backend quedó validada y congelada.
+- Frontend: layout standalone, modelos tipados, signal de menú y seis pruebas aprobadas.
+- No hay lista de incidencias, formularios, rutas de negocio, HTTP, auth, guards ni interceptors implementados.
+- Los datos simulados temporales son una decisión vigente para cumplir las fases frontend.
 
-## Next Step
+## Próximo objetivo
 
-el siguiente trabajo será crear el primer bloque funcional del dominio: entidad de incidencias, migraciones y API REST
+Implementar el Día 4 oficial: lista local de incidencias tipadas usando @for, track, @empty, @if y @switch.
+
+## Acuerdos de trabajo
+
+- Leer ROADMAP, PROMPTS y ADRs antes de cambios relevantes.
+- Explicar propósito, concepto y verificación antes de implementar.
+- Trabajar en cambios pequeños y verificables.
+- Mantener código e identificadores en inglés y documentación en español.
+- No usar any sin justificación.
+- No guardar secretos en el repositorio.
+- No hacer HTTP directamente desde componentes.
+
+## Decisiones relevantes
+
+- ADR-001: arquitectura full-stack de largo plazo.
+- ADR-002: reemplazada para el periodo frontend por ADR-004.
+- ADR-003: Spring Boot 4.1 y Java 21 como base.
+- ADR-004: frontend primero con datos locales temporales.
+- ADR-005: migración obligatoria a Gradle Wrapper.
