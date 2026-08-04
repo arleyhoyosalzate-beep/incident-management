@@ -71,4 +71,4 @@ Do not store secrets, access tokens, personal data, or entire chat transcripts.
 - Archivos afectados: AGENTS.md, README.md, documentación de arquitectura y API, contexto de IA, aprendizaje y ADR-004/ADR-005.
 - Verificación realizada: Revisión documental pendiente de commit; no se modificó código de aplicación.
 - Decisión o aprendizaje: Las directrices del mentor prevalecen sobre decisiones anteriores y los cambios de dirección se documentan sin reescribir el historial.
-- Commit relacionado: Pendiente.
+- Commit relacionado: 4187b6e - docs(plan): prioritize frontend learning roadmap.
