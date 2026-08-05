@@ -1,0 +1,134 @@
+:host {
+  display: block;
+}
+
+.incident-list {
+  margin-top: 2.5rem;
+}
+
+.incident-list__content {
+  display: grid;
+  gap: 1rem;
+}
+
+.incident-list__item {
+  background-color: #ffffff;
+  border: 1px solid #dbe3ef;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.75rem rgb(15 23 42 / 8%);
+  padding: 1.25rem;
+}
+
+.incident-list__item-header {
+  align-items: flex-start;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.incident-list__item h3 {
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.incident-list__description {
+  color: #475569;
+  line-height: 1.5;
+  margin: 0.75rem 0 1rem;
+}
+
+.incident-list__priority,
+.incident-list__status {
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.45rem 0.65rem;
+  white-space: nowrap;
+}
+
+.incident-list__priority {
+  background-color: #e2e8f0;
+  color: #1e293b;
+}
+
+.incident-list__priority[data-priority='LOW'] {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.incident-list__priority[data-priority='MEDIUM'] {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.incident-list__priority[data-priority='HIGH'] {
+  background-color: #ffedd5;
+  color: #9a3412;
+}
+
+.incident-list__priority[data-priority='CRITICAL'] {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.incident-list__status {
+  background-color: #e0f2fe;
+  color: #075985;
+}
+
+.incident-list__status[data-status='IN_PROGRESS'] {
+  background-color: #ede9fe;
+  color: #5b21b6;
+}
+
+.incident-list__status[data-status='RESOLVED'] {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.incident-list__status[data-status='CLOSED'] {
+  background-color: #e2e8f0;
+  color: #334155;
+}
+
+.incident-list__details {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  margin: 0;
+}
+
+.incident-list__details div {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.incident-list__details dt {
+  color: #64748b;
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.incident-list__details dd {
+  color: #1e293b;
+  margin: 0;
+}
+
+.incident-list__empty {
+  background-color: #ffffff;
+  border: 1px dashed #94a3b8;
+  border-radius: 0.75rem;
+  color: #475569;
+  margin: 0;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+@media (max-width: 40rem) {
+  .incident-list__item-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
