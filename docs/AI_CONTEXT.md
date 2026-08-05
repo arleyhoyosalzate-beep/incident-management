@@ -34,15 +34,16 @@ El reto formativo de Angular 20 define los objetivos funcionales. Las directrice
 
 ## Estado actual
 
-- Días oficiales 1, 2 y 3 completados.
+- Días oficiales 1, 2, 3 y 4 completados.
 - La sesión adicional de backend quedó validada y congelada.
-- Frontend: layout standalone, modelos tipados, signal de menú y seis pruebas aprobadas.
-- No hay lista de incidencias, formularios, rutas de negocio, HTTP, auth, guards ni interceptors implementados.
+- Frontend: layout standalone, modelos tipados, signal de menú, lista local de incidencias y diez pruebas aprobadas.
+- La lista usa datos temporales tipados, `@for`, `track`, `@empty`, `@if` y `@switch`.
+- No hay formularios, rutas de negocio, HTTP, auth, guards ni interceptors implementados.
 - Los datos simulados temporales son una decisión vigente para cumplir las fases frontend.
 
 ## Próximo objetivo
 
-Implementar el Día 4 oficial: lista local de incidencias tipadas usando @for, track, @empty, @if y @switch.
+Implementar el Día 5 oficial: extraer `IncidentCard` como componente de presentación y practicar comunicación padre-hijo con inputs y outputs tipados.
 
 ## Acuerdos de trabajo
 

@@ -72,3 +72,14 @@ Do not store secrets, access tokens, personal data, or entire chat transcripts.
 - Verificación realizada: Revisión documental pendiente de commit; no se modificó código de aplicación.
 - Decisión o aprendizaje: Las directrices del mentor prevalecen sobre decisiones anteriores y los cambios de dirección se documentan sin reescribir el historial.
 - Commit relacionado: 4187b6e - docs(plan): prioritize frontend learning roadmap.
+
+## 2026-08-05 / Sesión 5 - Día 4 oficial
+
+- Objetivo: Renderizar una lista local y tipada de incidencias aplicando el flujo de control moderno de Angular.
+- Contexto proporcionado a la IA: El mentor priorizó frontend y comprensión conceptual; el backend permanece pausado y se permiten datos locales temporales.
+- Prompt: Continuar el reto paso a paso, explicar los conceptos del mentor y diferenciar visualmente el código que debe copiarse de las explicaciones.
+- Resultado aplicado: Se creó `IncidentList`, una colección `readonly Incident[]`, una vista semántica con `@for`, `track`, `@empty`, `@if` y `@switch`, estilos por prioridad y estado, e integración con `App`.
+- Archivos afectados: `frontend/src/app/features/incidents/`, `frontend/src/app/app.ts` y `frontend/src/app/app.html`.
+- Verificación realizada: 10 pruebas en Karma/Jasmine con 0 fallos, build exitoso y revisión de Git sin errores de formato.
+- Decisión o aprendizaje: Los datos permanecen tipados y locales hasta introducir un Service; los estilos específicos pertenecen al SCSS del componente y `styles.scss` conserva únicamente estilos globales.
+- Commit relacionado: `5ee8ed6` - feat(incidents): render typed incident list.

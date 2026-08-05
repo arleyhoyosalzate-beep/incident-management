@@ -20,7 +20,7 @@ Las directrices del mentor tienen prioridad sobre decisiones anteriores:
 | 2 | Día 2 oficial: modelos TypeScript | Completado |
 | 3 | Día 3 oficial: componentes iniciales | Completado |
 | 4 | Hito adicional: base backend, Docker y MySQL | Completado y pausado |
-| 5 | Día 4 oficial: flujo de control moderno | Siguiente |
+| 5 | Día 4 oficial: flujo de control moderno | Completado |
 
 El hito adicional no sustituye ningún día oficial. Por eso el reto requerirá una sesión adicional respecto al calendario original.
 
@@ -84,22 +84,24 @@ No se agregarán endpoints, entidades, migraciones ni cambios de backend durante
 
 ### Día 4 - Plantillas y flujo de control moderno
 
-Estado: Siguiente.
+Estado: Completado.
 
 Objetivo: renderizar incidencias locales tipadas.
 
-- [ ] Crear datos locales temporales de Incident.
-- [ ] Crear un contenedor de listado de incidencias.
-- [ ] Renderizar con @for y track incident.id.
-- [ ] Mostrar @empty cuando no existan incidencias.
-- [ ] Usar @if para información opcional.
-- [ ] Usar @switch para los estados.
-- [ ] Diferenciar visualmente prioridades.
-- [ ] Crear pruebas, ejecutar build y documentar.
+- [x] Crear datos locales temporales de Incident.
+- [x] Crear un contenedor de listado de incidencias.
+- [x] Renderizar con @for y track incident.id.
+- [x] Mostrar @empty cuando no existan incidencias.
+- [x] Usar @if para información opcional.
+- [x] Usar @switch para los estados.
+- [x] Diferenciar visualmente prioridades.
+- [x] Crear pruebas, ejecutar build y documentar.
 
 Conceptos: @for, track, @empty, @if, @switch, interpolación y clases CSS.
 
 ### Día 5 - Comunicación padre e hijo
+
+Estado: Siguiente.
 
 Objetivo: crear IncidentCard como componente de presentación reutilizable.
 

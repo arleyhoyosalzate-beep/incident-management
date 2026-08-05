@@ -132,6 +132,28 @@ Test fixtures may still be used in automated tests when needed.
 - Los estilos globales pertenecen a `styles.scss`; los estilos de cada componente permanecen en su archivo SCSS.
 - Flexbox con `min-height: 100vh` y `flex: 1` permite mantener el footer al final de una pantalla con poco contenido.
 - Las pruebas con `TestBed` son entornos aislados y deben configurar `provideZonelessChangeDetection()` cuando la aplicación usa Angular zoneless.
+
+### Componentes creados
+
+- `Header`
+- `PageTitle`
+- `Footer`
+
+### Evidencia
+
+- `npm test`: 6 specs, 0 failures.
+- `npm run build`: compilación de producción exitosa.
+- Se verificó manualmente que el menú de usuario se muestra y se oculta.
+
+### Preguntas que debo poder responder
+
+- ¿Por qué un componente standalone debe declararse en `imports`?
+- ¿Cuál es la diferencia entre una signal interna y un input basado en signal?
+- ¿Por qué un input puede ser obligatorio?
+- ¿Qué representan Arrange, Act y Assert en una prueba?
+- ¿Por qué las pruebas fallaron al requerir Zone.js?
+- ¿Por qué no usamos `position: fixed` para mantener el footer abajo?
+
 ## Día 4 - Base de Backend y MySQL
 
 ### Conceptos aplicados
@@ -164,23 +186,52 @@ Test fixtures may still be used in automated tests when needed.
 - ¿Por qué Spring Boot no debe conectarse a MySQL como `root`?
 - ¿Qué comprueba `/actuator/health` y qué no comprueba?
 - ¿Por qué ocurrió el error de puerto 8080 ocupado?
-### Componentes creados
 
-- `Header`
-- `PageTitle`
-- `Footer`
+## Sesión 5 - Día 4 oficial: plantillas y flujo de control moderno
 
-### Evidencia
+### Conceptos aplicados
 
-- `npm test`: 6 specs, 0 failures.
-- `npm run build`: compilación de producción exitosa.
-- Se verificó manualmente que el menú de usuario se muestra y se oculta.
+- `@for` repite una porción del template para cada elemento de una colección.
+- `track incident.id` permite que Angular identifique cada incidencia de forma estable y reutilice correctamente los elementos del DOM.
+- `@empty` define la interfaz que se muestra cuando la colección no contiene elementos.
+- `@if` muestra información opcional, como el agente asignado, solo cuando el dato existe.
+- `@switch` selecciona una representación legible para cada estado de incidencia.
+- La interpolación `{{ ... }}` presenta valores de TypeScript dentro del HTML.
+- Los atributos enlazados con `[attr.data-priority]` y `[attr.data-status]` permiten aplicar estilos según valores tipados.
+- Los datos temporales implementan `readonly Incident[]`, por lo que cada objeto debe cumplir el contrato del modelo `Incident`.
+- Un componente standalone declara sus dependencias en `imports` y puede incorporarse directamente en otro componente standalone.
+- Los estilos específicos permanecen en `incident-list.scss`; `styles.scss` se reserva para reglas globales.
+
+### Arquitectura aplicada
+
+- `Incident` es el modelo que define la estructura de los datos del dominio.
+- `IncidentList` actúa como componente contenedor de esta etapa: conserva la colección y coordina su representación.
+- `incident-list.html` es la vista del componente, no un controlador MVC clásico.
+- Angular usa una arquitectura basada en componentes; la clase y el template colaboran mediante bindings y flujo de control.
+- Los datos locales son temporales. En una etapa posterior, un `IncidentService` asumirá el acceso y las operaciones sobre los datos.
+
+### Pruebas y evidencia
+
+- Se verificó la creación de `IncidentList`.
+- Se comprobó que se renderiza una tarjeta por cada incidencia.
+- Se comprobó el estado vacío sin incidencias.
+- Se verificaron las etiquetas de estado y la aparición condicional del agente asignado.
+- `npm test`: 10 specs, 0 failures.
+- `npm run build`: compilación exitosa.
+- Commit funcional: `5ee8ed6` - feat(incidents): render typed incident list.
+
+### Dificultades y resolución
+
+- El build se ejecutó inicialmente desde la raíz, donde no existe `package.json`; se corrigió ejecutándolo desde `frontend`.
+- Los estilos del componente se copiaron accidentalmente también en `styles.scss`; la revisión con `git diff` detectó la duplicación y se restauró el archivo global.
+- `npm test` quedó abierto porque usa modo observación; se aprendió a detenerlo con `Ctrl + C` y a usar `npm test -- --watch=false` para una sola ejecución.
 
 ### Preguntas que debo poder responder
 
-- ¿Por qué un componente standalone debe declararse en `imports`?
-- ¿Cuál es la diferencia entre una signal interna y un input basado en signal?
-- ¿Por qué un input puede ser obligatorio?
-- ¿Qué representan Arrange, Act y Assert en una prueba?
-- ¿Por qué las pruebas fallaron al requerir Zone.js?
-- ¿Por qué no usamos `position: fixed` para mantener el footer abajo?
+- ¿Qué diferencia existe entre una dependencia, npm y un script de `package.json`?
+- ¿Por qué `npm run build` debe ejecutarse donde está el `package.json` del frontend?
+- ¿Qué problema resuelve `track incident.id`?
+- ¿Cuál es la diferencia entre `@empty` y `@if`?
+- ¿Por qué el modelo `Incident` no es lo mismo que el componente `IncidentList`?
+- ¿Por qué los estilos de una funcionalidad deben permanecer en su componente?
+- ¿Qué responsabilidades tendrá posteriormente un `Service` que todavía no debe asumir el componente?
