@@ -83,3 +83,14 @@ Do not store secrets, access tokens, personal data, or entire chat transcripts.
 - Verificación realizada: 10 pruebas en Karma/Jasmine con 0 fallos, build exitoso y revisión de Git sin errores de formato.
 - Decisión o aprendizaje: Los datos permanecen tipados y locales hasta introducir un Service; los estilos específicos pertenecen al SCSS del componente y `styles.scss` conserva únicamente estilos globales.
 - Commit relacionado: `5ee8ed6` - feat(incidents): render typed incident list.
+
+## 2026-08-06 / Sesión 6 - Día 5 oficial
+
+- Objetivo: Extraer una tarjeta reutilizable y practicar comunicación padre-hijo con contratos tipados.
+- Contexto proporcionado a la IA: Frontend prioritario, datos locales temporales, Angular 20 standalone y necesidad de explicar cada concepto técnico solicitado por el mentor.
+- Prompt: Continuar paso a paso desde la lista de incidencias, explicar inputs, outputs e inmutabilidad y mantener recordatorios de los conceptos del mentor.
+- Resultado aplicado: Se creó `IncidentCard`, se recibió `Incident` con `input.required`, se emitieron IDs con dos `output<string>`, se trasladó la presentación al hijo y se mantuvo colección, selección y eliminación inmutable en `IncidentList`.
+- Archivos afectados: `frontend/src/app/features/incidents/components/incident-card/` y `frontend/src/app/features/incidents/pages/incident-list/`.
+- Verificación realizada: Build exitoso, interacción visual de selección y eliminación, y 15 pruebas en Karma/Jasmine con 0 fallos.
+- Decisión o aprendizaje: El padre posee el estado y responde a las solicitudes; el hijo presenta un elemento y emite eventos sin mutar el input. Las pruebas del padre deben verificar composición y comunicación, mientras las del hijo verifican su contrato aislado.
+- Commit relacionado: `d8bdf6a` - feat(incidents): add interactive incident cards.

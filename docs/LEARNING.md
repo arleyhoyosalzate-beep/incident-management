@@ -235,3 +235,50 @@ Test fixtures may still be used in automated tests when needed.
 - ¿Por qué el modelo `Incident` no es lo mismo que el componente `IncidentList`?
 - ¿Por qué los estilos de una funcionalidad deben permanecer en su componente?
 - ¿Qué responsabilidades tendrá posteriormente un `Service` que todavía no debe asumir el componente?
+
+## Sesión 6 - Día 5 oficial: comunicación padre-hijo
+
+### Conceptos aplicados
+
+- Un componente contenedor posee y actualiza el estado de una funcionalidad; un componente de presentación recibe datos y emite eventos.
+- `input.required<Incident>()` define un contrato obligatorio y tipado desde el padre hacia el hijo.
+- Los inputs basados en signals se leen con paréntesis, por ejemplo `incident().title`.
+- `output<string>()` define un evento que solo puede emitir identificadores de tipo `string`.
+- `$event` contiene el valor emitido por el hijo y lo entrega al manejador del padre.
+- Property binding con `[incident]` transporta datos hacia el hijo; event binding con `(incidentSelected)` escucha eventos provenientes del hijo.
+- El flujo de datos es unidireccional: estado del padre, input del hijo, output del hijo y actualización del padre.
+- `string | null` es un union type que representa una selección existente o la ausencia de selección.
+- `readonly Incident[]` impide mutar el arreglo; `filter` crea una colección nueva para eliminar una incidencia inmutablemente.
+- Los estilos se separaron entre la estructura de `IncidentList` y la presentación de `IncidentCard`.
+- `role="group"`, `aria-label`, `role="status"` y `:focus-visible` mejoran la accesibilidad de las acciones.
+
+### Arquitectura aplicada
+
+- `IncidentList` conserva la colección, el ID seleccionado y los métodos que responden a eventos.
+- `IncidentCard` recibe un solo `Incident`, lo representa y no modifica el estado del padre.
+- El hijo emite `incidentSelected` y `deleteRequested`; el padre decide cómo responder.
+- Esta comunicación ocurre entre componentes y no sustituye un `Service` ni una operación HTTP.
+- Angular utiliza composición de componentes y bindings, no un controlador MVC clásico.
+
+### Pruebas y evidencia
+
+- `IncidentCard` se probó aisladamente proporcionando el input mediante `fixture.componentRef.setInput`.
+- Se verificó la representación de una incidencia y la emisión de ambos outputs.
+- Se probó la composición de una tarjeta por incidencia desde `IncidentList`.
+- Se verificaron selección, eliminación inmutable y estado vacío desde el componente padre.
+- El primer intento detectó dos pruebas antiguas que todavía buscaban `.incident-list__item`; se actualizaron para la nueva composición.
+- `npm run build`: compilación exitosa.
+- `npm test -- --watch=false`: 15 specs, 0 failures.
+- Commit funcional: `d8bdf6a` - feat(incidents): add interactive incident cards.
+
+### Preguntas que debo poder responder
+
+- ¿Qué es un input y por qué `IncidentCard` lo declara obligatorio?
+- ¿Qué es un output y qué contiene `$event`?
+- ¿Cuál es la diferencia entre property binding y event binding?
+- ¿Por qué el hijo solicita la eliminación, pero el padre modifica la colección?
+- ¿Qué significa flujo de datos unidireccional?
+- ¿Cuál es la diferencia entre `readonly incidents` e `incidents: readonly Incident[]`?
+- ¿Por qué `filter` es una operación apropiada para una actualización inmutable?
+- ¿Por qué un componente no reemplaza la responsabilidad futura de un Service?
+- ¿Qué funciones cumplen Jasmine, Karma y Angular TestBed?

@@ -21,6 +21,7 @@ Las directrices del mentor tienen prioridad sobre decisiones anteriores:
 | 3 | Día 3 oficial: componentes iniciales | Completado |
 | 4 | Hito adicional: base backend, Docker y MySQL | Completado y pausado |
 | 5 | Día 4 oficial: flujo de control moderno | Completado |
+| 6 | Día 5 oficial: comunicación padre-hijo | Completado |
 
 El hito adicional no sustituye ningún día oficial. Por eso el reto requerirá una sesión adicional respecto al calendario original.
 
@@ -101,18 +102,21 @@ Conceptos: @for, track, @empty, @if, @switch, interpolación y clases CSS.
 
 ### Día 5 - Comunicación padre e hijo
 
-Estado: Siguiente.
+Estado: Completado.
 
 Objetivo: crear IncidentCard como componente de presentación reutilizable.
 
-- [ ] Recibir Incident mediante input.required.
-- [ ] Emitir eventos tipados de selección y solicitud de eliminación.
-- [ ] Mantener la colección en el componente contenedor.
-- [ ] No modificar inputs desde el hijo.
+- [x] Recibir Incident mediante input.required.
+- [x] Emitir eventos tipados de selección y solicitud de eliminación.
+- [x] Mantener la colección en el componente contenedor.
+- [x] No modificar inputs desde el hijo.
+- [x] Verificar build y quince pruebas automatizadas.
 
 Conceptos: inputs, outputs, inmutabilidad, componentes contenedores y de presentación.
 
 ### Día 6 - Diseño adaptable y accesibilidad
+
+Estado: Siguiente.
 
 - [ ] Crear variables globales de diseño.
 - [ ] Crear cuadrícula responsive.
