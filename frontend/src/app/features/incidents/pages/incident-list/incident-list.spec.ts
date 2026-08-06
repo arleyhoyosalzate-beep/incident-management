@@ -22,15 +22,17 @@ describe('IncidentList', () => {
     expect(component).toBeTruthy();
   });
 
-  it('renders one item for each incident', () => {
+  it('renders one card for each incident', () => {
     fixture.detectChanges();
 
     const compiled: HTMLElement = fixture.nativeElement;
-    const incidentItems = compiled.querySelectorAll(
-      '.incident-list__item',
+    const incidentCards = compiled.querySelectorAll(
+      'app-incident-card',
     );
 
-    expect(incidentItems.length).toBe(INITIAL_INCIDENTS.length);
+    expect(incidentCards.length).toBe(
+      INITIAL_INCIDENTS.length,
+    );
   });
 
   it('renders the empty state when there are no incidents', () => {
@@ -38,41 +40,76 @@ describe('IncidentList', () => {
     fixture.detectChanges();
 
     const compiled: HTMLElement = fixture.nativeElement;
-    const incidentItems = compiled.querySelectorAll(
-      '.incident-list__item',
+    const incidentCards = compiled.querySelectorAll(
+      'app-incident-card',
     );
     const emptyState = compiled.querySelector(
       '.incident-list__empty',
     );
 
-    expect(incidentItems.length).toBe(0);
+    expect(incidentCards.length).toBe(0);
     expect(emptyState?.textContent).toContain(
       'No hay incidencias registradas.',
     );
   });
 
-  it('renders status labels and optional assigned agents', () => {
+  it('updates the selection when a child emits an event', () => {
     fixture.detectChanges();
 
     const compiled: HTMLElement = fixture.nativeElement;
-    const incidentItems = Array.from(
-      compiled.querySelectorAll<HTMLElement>('.incident-list__item'),
+    const selectButton =
+      compiled.querySelector<HTMLButtonElement>(
+        '.incident-card__button--select',
+      );
+
+    expect(selectButton).not.toBeNull();
+
+    selectButton?.click();
+    fixture.detectChanges();
+
+    expect(component.selectedIncidentId).toBe(
+      INITIAL_INCIDENTS[0].id,
     );
 
-    expect(incidentItems[0].textContent).toContain('Abierta');
-    expect(incidentItems[0].textContent).not.toContain(
-      'Agente asignado',
+    const selectionMessage = compiled.querySelector(
+      '.incident-list__selection',
     );
 
-    expect(incidentItems[1].textContent).toContain('En progreso');
-    expect(incidentItems[1].textContent).toContain('agent-001');
+    expect(selectionMessage?.textContent).toContain(
+      INITIAL_INCIDENTS[0].id,
+    );
+  });
 
-    expect(incidentItems[2].textContent).toContain('Resuelta');
-    expect(incidentItems[2].textContent).toContain('agent-002');
+  it('removes an incident when a child requests deletion', () => {
+    fixture.detectChanges();
 
-    expect(incidentItems[3].textContent).toContain('Cerrada');
-    expect(incidentItems[3].textContent).not.toContain(
-      'Agente asignado',
+    const incidentIdToDelete = INITIAL_INCIDENTS[0].id;
+    const compiled: HTMLElement = fixture.nativeElement;
+    const deleteButton =
+      compiled.querySelector<HTMLButtonElement>(
+        '.incident-card__button--delete',
+      );
+
+    expect(deleteButton).not.toBeNull();
+
+    deleteButton?.click();
+    fixture.detectChanges();
+
+    expect(component.incidents.length).toBe(
+      INITIAL_INCIDENTS.length - 1,
+    );
+    expect(
+      component.incidents.some(
+        (incident) => incident.id === incidentIdToDelete,
+      ),
+    ).toBeFalse();
+
+    const remainingCards = compiled.querySelectorAll(
+      'app-incident-card',
+    );
+
+    expect(remainingCards.length).toBe(
+      INITIAL_INCIDENTS.length - 1,
     );
   });
 });
